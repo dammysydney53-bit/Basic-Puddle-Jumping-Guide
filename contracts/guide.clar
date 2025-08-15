@@ -25,7 +25,7 @@
   (max-participants uint))
   (let (
     (session-id (+ (var-get session-counter) u1))
-    (current-height block-height)
+    (current-height stacks-block-height)
   )
     (if (and (<= min-safety-score u10) (> max-participants u0))
       (begin
