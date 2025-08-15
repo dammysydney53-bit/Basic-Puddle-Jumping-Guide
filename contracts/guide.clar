@@ -1,8 +1,6 @@
 ;; Activity Coordinator Contract
 ;; Coordinates puddle jumping activities and safety guidelines
 
-(use-trait puddle-reports-trait .puddle-reports)
-
 (define-constant ERR-INVALID-RATING (err u400))
 (define-constant ERR-UNSAFE-CONDITIONS (err u403))
 
@@ -27,7 +25,7 @@
   (max-participants uint))
   (let (
     (session-id (+ (var-get session-counter) u1))
-    (current-height (stacks-block-height))
+    (current-height block-height)
   )
     (if (and (<= min-safety-score u10) (> max-participants u0))
       (begin
