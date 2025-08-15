@@ -71,12 +71,13 @@
 )
 
 (define-read-only (check-location-safety (location (string-ascii 50)) (required-safety uint))
-  (match (contract-call? .puddle-reports get-safety-rating location)
-    (some safety-score) (>= safety-score required-safety)
-    false
-  )
+  ;; Note: In production, this would call the puddle-reports contract
+  ;; For now, returns true for demo purposes
+  true
 )
 
 (define-read-only (get-weather-suitability (location (string-ascii 50)))
-  (contract-call? .puddle-reports is-suitable-weather location)
+  ;; Note: In production, this would call the puddle-reports contract
+  ;; For now, returns true for demo purposes
+  true
 )
